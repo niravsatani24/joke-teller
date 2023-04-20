@@ -3,7 +3,7 @@ import axios from 'axios'
 export default async (req, res) => {
   try {
     const { keyword } = req.body
-    const response = await axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', {
+    const response = await axios.post('https://api.openai.com/v1/engines/text-davinci-001/completions', {
       prompt: `Tell me a technical joke related to ${keyword}`,
       max_tokens: 60,
       temperature: 0.7,
@@ -12,7 +12,7 @@ export default async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+        'Authorization': 'Bearer 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'
       }
     })
     const joke = response.data.choices[0].text.trim()
