@@ -12,7 +12,7 @@ export default async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Authorization':`Bearer ${process.env.OPENAI_API_KEY}`
       }
     })
     const joke = response.data.choices[0].text.trim()
